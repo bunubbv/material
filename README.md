@@ -2,8 +2,6 @@
 # Material-onamu
 Material Skin of openNAMU. (MDB Plugins)
 
-It does not support generic openNAMU. Please modify and use.
-
 # License
 Copyright 2020 BlueWhite
 
