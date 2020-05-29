@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta charset="utf-8">
+		<title>{{imp[0]}}{% if imp[3][0] != 0 %}{{ imp[3][0] }}{% endif %} - {{imp[1][0]}}</title>
+        {{imp[3][3]|safe}}
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+		<link href="/views/Material/css/Material.css" rel="stylesheet">
+		<link href="/views/Material/css/style.css" rel="stylesheet">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/moonspam/NanumBarunGothic@latest/nanumbarungothicsubset.css">
+        {{imp[1][5]|safe}}
+        {{imp[2][3]|safe}}
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="theme-color" content="gray">
+	</head>
+	<body class="grey lighten-3">
+		<header>
+			<nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar" style="background-color: gray;">
+				<div class="container">
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarSupportedContent" style="height: 51.59px;">
+						<ul class="navbar-nav mr-auto">
+							<li class="nav-item">
+								<a class="nav-link waves-effect" href="/">{{imp[1][4]|safe}}</a>
+							</li>
+							<li class="nav-item">
+							  <a class="nav-link waves-effect" href="/recent_changes">최근 변경</a>
+							</li>
+							<li class="nav-item">
+							  <a class="nav-link waves-effect" href="/recent_discuss">최근 토론</a>
+							</li>
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								  기타 도구
+								</a>
+								<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+									<a href="/admin_list" title="관리자 목록" class="dropdown-item">관리자 목록</a>
+									<a href="/not_close_topic" title="열린 토론 목록" class="dropdown-item">열린 토론 목록</a>
+									<a href="/title_index" title="모든 문서 목록" class="dropdown-item">모든 문서 목록</a>
+									<a href="/acl_list" title="ACL 문서 목록" class="dropdown-item">ACL 문서 목록</a>
+									<a href="/please" title="필요한 문서들" class="dropdown-item">필요한 문서들</a>
+									<a href="/block_log" title="최근 차단" class="dropdown-item">최근 차단</a>
+									<a href="/user_log" title="사용자 목록" class="dropdown-item">사용자 목록</a>
+									<a href="/admin_log" title="권한 사용 목록" class="dropdown-item">권한 사용 목록</a>
+									<a href="/old_page" title="오래된 문서" class="dropdown-item">오래된 문서</a>
+									<a href="/upload" title="파일 올리기" class="dropdown-item">파일 올리기</a>
+									{% if imp[2][9] != '0' %}
+										<a class="dropdown-item" href="/manager">관리 도구</a>
+									{% endif %}
+								</div>
+							</li>
+						</ul>
+						<ul class="navbar-nav nav-flex-icons">
+							<form method="post" action="/search" id="search" role="search">
+								<div class="input-group">
+									<input id="search_input" class="input is-primary ui-autocomplete-input form-control" name="search" placeholder="검색" autocomplete="off" type="search">
+									<div class="input-group-append">
+										<button method="post" id="searchbutton" type="submit" formaction="/search"><i class="fas fa-search"></i></button>
+										<button type="button" id="searchbutton" onclick="location.href='/random' " style="border-radius: 0 .25rem .25rem 0"><i class="fas fa-random"></i></button>
+									</div>
+								</div>
+								<span class="icon is-small is-left"></span>
+							</form>
+						</ul>
+						{% if imp[2][2] != 1 %}
+							<span class="nav-item" id="usermenu" style="padding: 0 .6rem">
+						{% else %}
+							<span class="nav-item" id="usermenu">
+						{% endif %}
+							{% if imp[2][2] != 1 %}
+							&nbsp;
+							<span class="dropdown">
+								<a href="#" id="usermenuDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								  <i style="color: #ffffff" class="fas fa-user"></i>
+								</a>
+								<div class="dropdown-menu dropdown-menu-right" aria-labelledby="usermenuDropdown">
+									<a class="dropdown-item" href="/record/{{imp[2][10]}}">내 문서 기여 목록</a>
+									<a class="dropdown-item" href="/record/{{imp[2][10]}}/topic">내 토론 기여 목록</a>
+									<div class="dropdown-divider"></div>
+									<a class="dropdown-item" href="/login">로그인</a>
+								</div>
+							</li>
+						</span>
+							{% else %}
+							&nbsp;
+							<span class="dropdown">
+								<a href="#" id="usermenuDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								  <img class="profile-img" src="//secure.gravatar.com/avatar/{{imp[2][4]|md5_replace}}?d=retro">
+								</a>
+								<div class="dropdown-menu dropdown-menu-right" aria-labelledby="usermenuDropdown">
+									<a class="dropdown-item" href="/w/user:{{imp[2][5]}}">{{imp[2][5]}}</a>
+									<div class="dropdown-divider"></div>
+									<a class="dropdown-item" href="/record/{{imp[2][5]}}">내 문서 기여 목록</a>
+									<a class="dropdown-item" href="/record/{{imp[2][5]}}/topic">내 토론 기여 목록</a>
+									<div class="dropdown-divider"></div>
+									<a class="dropdown-item" href="/change">내 정보</a>
+									<div class="dropdown-divider"></div>
+									<a class="dropdown-item" href="/logout">로그아웃</a>
+								</div>
+							</li>
+							{% endif %}
+						</span>
+					</div>
+				</div>
+			</nav>
+		</header>
+		<main class="mt-5 pt-5">
+			<div class="container">
+				<section class="mt-4">
+					<div class="row">
+						<div class="col-md-8 mb-4">
+							<div class="card mb-4 wow fadeIn" style="height: 100%">
+								<div class="card-header"><a style="color: #212529" href="/w/{{imp[0]}}">{{imp[0]}}</a>
+									{% if imp[3][0] != 0 %} {{imp[3][0]}}{% endif %}{% if menu != 0 %}<span style="float: right;">{% for sub_d in menu %}<a href="/{{sub_d[0]}}">{{sub_d[1]}}</a>{% if menu[loop.index] %} | {% endif %}{% endfor %}</span>{% endif %}
+								</div>
+								<div class="card-body">
+									{{data|safe}}
+								</div>
+								<div class="card-header" style="boder-bottom: none; border-top: 1px solid rgba(0,0,0,.125)">
+									{{imp[1][1]|safe}}
+								<div style="margin-top: 10px"><a href="https://github.com/2DU/openNAMU"><img src="/views/Liberty/img/on2.png" width="100px"></a> | <!--제작자 표시입니다. 지우지 말아주시길 부탁드립니다.--><a href="/github.com/BadaWikiDev/Material-onamu">Made By BlueWhite</a></div>
+								</div>
+								</div>
+						</div>
+						<div class="col-md-4 mb-4">
+							<div class="card mb-4 wow fadeIn">
+								<div class="card-header">최근 변경</div>
+								<div class="card-body">
+									<div class="live-recent-content">
+										<span class = "live-recent-list" id="live-recent-list">
+											<span class="discuss-item">&nbsp;</span>
+											<span class="discuss-item">&nbsp;</span>
+											<span class="discuss-item">&nbsp;</span>
+											<span class="discuss-item">&nbsp;</span>
+											<span class="discuss-item">&nbsp;</span>
+											<span class="discuss-item">&nbsp;</span>
+											<span class="discuss-item">&nbsp;</span>
+											<span class="discuss-item">&nbsp;</span>
+											<span class="discuss-item">&nbsp;</span>
+											<span class="discuss-item">&nbsp;</span>
+										</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+		</main>
+	</body>
+	<script type="text/javascript" src="/views/Material/js/theseed.js"></script>
+	<script type="text/javascript" src="/views/Material/js/RecentChanges.js"></script>
+	<script type="text/javascript" src="/views/Material/js/main.js"></script>
+</html>
