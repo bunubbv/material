@@ -8,12 +8,22 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-		<link href="/views/Material/css/Material.css" rel="stylesheet">
-		<link href="/views/Material/css/style.css" rel="stylesheet">
+		<link href="/views/Material/css/Material.css?ver=2" rel="stylesheet">
+		<link href="/views/Material/css/style.css?ver=2" rel="stylesheet">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/moonspam/NanumBarunGothic@latest/nanumbarungothicsubset.css">
         {{imp[1][5]|safe}}
         {{imp[2][3]|safe}}
+		<meta name="title" content="{{imp[0]}} - {{imp[1][0]}}">
+        <meta name="keywords" content="{{imp[1][0]}}">
+        <meta name="description" content="{{data|cut_100}}">
+		<meta property="og:type" content="website"> 
+        <meta property="og:title" content="{{imp[0]}} - {{imp[1][0]}}">
+        <meta property="og:description" content="{{data|cut_100}}">
+        <meta name="twitter:creator" content="@{{imp[1][0]}}">
+        <meta name="twitter:title" content="{{imp[0]}}">
+        <meta name="twitter:site" content="@{{imp[1][0]}}">
+        <meta name="twitter:card" content="summary"
         <meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="theme-color" content="gray">
 	</head>
@@ -24,7 +34,7 @@
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
 					</button>
-					<div class="collapse navbar-collapse" id="navbarSupportedContent" style="height: 51.59px;">
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="navbar-nav mr-auto">
 							<li class="nav-item">
 								<a class="nav-link waves-effect" href="/">{{imp[1][4]|safe}}</a>
@@ -55,6 +65,44 @@
 									{% endif %}
 								</div>
 							</li>
+							{% if imp[2][2] != 1 %}
+								<span class="nav-item" id="nologinmobile">
+							{% else %}
+								<span class="nav-item" id="loginmobile">
+							{% endif %}
+								{% if imp[2][2] != 1 %}
+								&nbsp;
+								<span class="dropdown">
+									<a href="#" id="usermenuDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									  <i style="color: #ffffff" class="fas fa-user"></i>
+									</a>
+									<div class="dropdown-menu dropdown-menu-right" aria-labelledby="usermenuDropdown">
+										<a class="dropdown-item" href="/record/{{imp[2][10]}}">내 문서 기여 목록</a>
+										<a class="dropdown-item" href="/record{{imp[2][10]}}/topic">내 토론 기여 목록</a>
+										<div class="dropdown-divider"></div>
+										<a class="dropdown-item" href="/login">로그인</a>
+									</div>
+								</li>
+							</span>
+								{% else %}
+								&nbsp;
+								<span class="dropdown">
+									<a href="#" id="usermenuDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									  <img class="profile-img" src="//secure.gravatar.com/avatar/{{imp[2][4]|md5_replace}}?d=retro">
+									</a>
+									<div class="dropdown-menu dropdown-menu-right" aria-labelledby="usermenuDropdown">
+										<a class="dropdown-item" href="/w/user:{{imp[2][5]}}">{{imp[2][5]}}</a>
+										<div class="dropdown-divider"></div>
+										<a class="dropdown-item" href="/record/{{imp[2][5]}}">내 문서 기여 목록</a>
+										<a class="dropdown-item" href="/record/{{imp[2][5]}}/topic">내 토론 기여 목록</a>
+										<div class="dropdown-divider"></div>
+										<a class="dropdown-item" href="/change">내 정보</a>
+										<div class="dropdown-divider"></div>
+										<a class="dropdown-item" href="logout">로그아웃</a>
+									</div>
+								</li>
+								{% endif %}
+							</span>
 						</ul>
 						<ul class="navbar-nav nav-flex-icons">
 							<form method="post" action="/search" id="search" role="search">
@@ -69,9 +117,9 @@
 							</form>
 						</ul>
 						{% if imp[2][2] != 1 %}
-							<span class="nav-item" id="usermenu" style="padding: 0 .6rem">
+							<span class="nav-item" id="nologinusermenu">
 						{% else %}
-							<span class="nav-item" id="usermenu">
+							<span class="nav-item" id="loginusermenu">
 						{% endif %}
 							{% if imp[2][2] != 1 %}
 							&nbsp;
@@ -110,21 +158,21 @@
 				</div>
 			</nav>
 		</header>
-		<main class="mt-5 pt-5">
+		<main class="mt-5 pt-5" id="top">
 			<div class="container">
 				<section class="mt-4">
 					<div class="row">
 						<div class="col-md-8 mb-4">
 							<div class="card mb-4 wow fadeIn" style="height: 100%">
-								<div class="card-header"><a style="color: #212529" href="/w/{{imp[0]}}">{{imp[0]}}</a>
+								<div class="card-header"><a style="color: unset;" href="/w/{{imp[0]}}">{{imp[0]}}</a>
 									{% if imp[3][0] != 0 %} {{imp[3][0]}}{% endif %}{% if menu != 0 %}<span style="float: right;">{% for sub_d in menu %}<a href="/{{sub_d[0]}}">{{sub_d[1]}}</a>{% if menu[loop.index] %} | {% endif %}{% endfor %}</span>{% endif %}
 								</div>
 								<div class="card-body">
 									{{data|safe}}
 								</div>
-								<div class="card-header" style="boder-bottom: none; border-top: 1px solid rgba(0,0,0,.125)">
+								<div class="card-header" id="bottom">
 									{{imp[1][1]|safe}}
-								<div style="margin-top: 10px"><a href="https://github.com/2DU/openNAMU"><img src="/views/Liberty/img/on2.png" width="100px"></a> | <!--제작자 표시입니다. 지우지 말아주시길 부탁드립니다.--><a href="/github.com/BadaWikiDev/Material-onamu">Made By BlueWhite</a></div>
+								<div style="margin-top: 10px"><a href="https://github.com/2DU/openNAMU"><img src="/views/main_css/file/s_logo.png" width="100px"></a> | <!--제작자 표시입니다. 지우지 말아주시길 부탁드립니다.--><a href="https://github.com/BadaWikiDev/Material-onamu">Material</a></div>
 								</div>
 								</div>
 						</div>
@@ -153,8 +201,17 @@
 				</section>
 			</div>
 		</main>
+		<div id="topbutton">
+            <a href="#top">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="vertical-align: center;-ms-transform: rotate(360deg);-webkit-transform: rotate(360deg);transform: rotate(360deg);/* margin: auto; */width: 100%;height: 100%;" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24" class="iconify" data-icon="ic:baseline-arrow-upward" data-inline="true"><path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8l-8 8z" fill="currentColor"></path></svg>
+            </a>
+        </div>
+		<div id="bottombutton">
+            <a href="#bottom">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="vertical-align: -0.125em;-ms-transform: rotate(360deg);-webkit-transform: rotate(360deg);transform: rotate(360deg);width: 100%;height: 100%;" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24" class="iconify" data-icon="ic:baseline-arrow-downward" data-inline="true"><path d="M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8l8-8z" fill="currentColor"></path></svg>
+            </a>
+        </div>
 	</body>
-	<script type="text/javascript" src="/views/Material/js/theseed.js"></script>
 	<script type="text/javascript" src="/views/Material/js/RecentChanges.js"></script>
 	<script type="text/javascript" src="/views/Material/js/main.js"></script>
 </html>
