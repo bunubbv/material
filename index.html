@@ -1,30 +1,30 @@
 <!DOCTYPE html>
 <html>
 	<head>
-        <meta charset="utf-8">
+		<meta charset="utf-8">
 		<title>{{imp[0]}}{% if imp[3][0] != 0 %}{{ imp[3][0] }}{% endif %} - {{imp[1][0]}}</title>
-        {{imp[3][3]|safe}}
+		{{imp[3][3]|safe}}
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-		<link href="/views/Material/css/Material.css?ver=3" rel="stylesheet">
-		<link href="/views/Material/css/style.css?ver=3" rel="stylesheet">
+		<link href="/views/Material/css/Material.css?ver=4" rel="stylesheet">
+		<link href="/views/Material/css/style.css?ver=4" rel="stylesheet">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/moonspam/NanumBarunGothic@latest/nanumbarungothicsubset.css">
-        {{imp[1][5]|safe}}
-        {{imp[2][3]|safe}}
+		{{imp[1][5]|safe}}
+		{{imp[2][3]|safe}}
 		<meta name="title" content="{{imp[0]}} - {{imp[1][0]}}">
-        <meta name="keywords" content="{{imp[1][0]}}">
-        <meta name="description" content="{{data|cut_100}}">
+		<meta name="keywords" content="{{imp[1][0]}}">
+		<meta name="description" content="{{data|cut_100}}">
 		<meta property="og:type" content="website"> 
-        <meta property="og:title" content="{{imp[0]}} - {{imp[1][0]}}">
-        <meta property="og:description" content="{{data|cut_100}}">
-        <meta name="twitter:creator" content="@{{imp[1][0]}}">
-        <meta name="twitter:title" content="{{imp[0]}}">
-        <meta name="twitter:site" content="@{{imp[1][0]}}">
-        <meta name="twitter:card" content="summary"
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta property="og:title" content="{{imp[0]}} - {{imp[1][0]}}">
+		<meta property="og:description" content="{{data|cut_100}}">
+		<meta name="twitter:creator" content="@{{imp[1][0]}}">
+		<meta name="twitter:title" content="{{imp[0]}}">
+		<meta name="twitter:site" content="@{{imp[1][0]}}">
+		<meta name="twitter:card" content="summary">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="theme-color" content="gray">
 	</head>
 	<body class="grey lighten-3">
@@ -78,7 +78,7 @@
 									</a>
 									<div class="dropdown-menu dropdown-menu-right" aria-labelledby="usermenuDropdown">
 										<a class="dropdown-item" href="/record/{{imp[2][10]}}">내 문서 기여 목록</a>
-										<a class="dropdown-item" href="/record{{imp[2][10]}}/topic">내 토론 기여 목록</a>
+										<a class="dropdown-item" href="/topic_record{{imp[2][10]}}">내 토론 기여 목록</a>
 										<div class="dropdown-divider"></div>
 										<a class="dropdown-item" href="/login">로그인</a>
 									</div>
@@ -94,7 +94,7 @@
 										<a class="dropdown-item" href="/w/user:{{imp[2][5]}}">{{imp[2][5]}}</a>
 										<div class="dropdown-divider"></div>
 										<a class="dropdown-item" href="/record/{{imp[2][5]}}">내 문서 기여 목록</a>
-										<a class="dropdown-item" href="/record/{{imp[2][5]}}/topic">내 토론 기여 목록</a>
+										<a class="dropdown-item" href="/topic_record/{{imp[2][5]}}">내 토론 기여 목록</a>
 										<div class="dropdown-divider"></div>
 										<a class="dropdown-item" href="/change">내 정보</a>
 										<div class="dropdown-divider"></div>
@@ -129,7 +129,7 @@
 								</a>
 								<div class="dropdown-menu dropdown-menu-right" aria-labelledby="usermenuDropdown">
 									<a class="dropdown-item" href="/record/{{imp[2][10]}}">내 문서 기여 목록</a>
-									<a class="dropdown-item" href="/record/{{imp[2][10]}}/topic">내 토론 기여 목록</a>
+									<a class="dropdown-item" href="/topic_record/{{imp[2][10]}}">내 토론 기여 목록</a>
 									<div class="dropdown-divider"></div>
 									<a class="dropdown-item" href="/login">로그인</a>
 								</div>
@@ -145,7 +145,7 @@
 									<a class="dropdown-item" href="/w/user:{{imp[2][5]}}">{{imp[2][5]}}</a>
 									<div class="dropdown-divider"></div>
 									<a class="dropdown-item" href="/record/{{imp[2][5]}}">내 문서 기여 목록</a>
-									<a class="dropdown-item" href="/record/{{imp[2][5]}}/topic">내 토론 기여 목록</a>
+									<a class="dropdown-item" href="/topic_record/{{imp[2][5]}}">내 토론 기여 목록</a>
 									<div class="dropdown-divider"></div>
 									<a class="dropdown-item" href="/change">내 정보</a>
 									<div class="dropdown-divider"></div>
@@ -201,17 +201,32 @@
 				</section>
 			</div>
 		</main>
-		<div id="topbutton">
-            <a href="#top">
-                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="vertical-align: center;-ms-transform: rotate(360deg);-webkit-transform: rotate(360deg);transform: rotate(360deg);/* margin: auto; */width: 100%;height: 100%;" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24" class="iconify" data-icon="ic:baseline-arrow-upward" data-inline="true"><path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8l-8 8z" fill="currentColor"></path></svg>
-            </a>
+	<div id="topbutton">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="vertical-align: center;-ms-transform: rotate(360deg);-webkit-transform: rotate(360deg);transform: rotate(360deg);/* margin: auto; */width: 100%;height: 100%;" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24" class="iconify" data-icon="ic:baseline-arrow-upward" data-inline="true"><path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8l-8 8z" fill="currentColor"></path></svg>
         </div>
-		<div id="bottombutton">
-            <a href="#bottom">
-                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="vertical-align: -0.125em;-ms-transform: rotate(360deg);-webkit-transform: rotate(360deg);transform: rotate(360deg);width: 100%;height: 100%;" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24" class="iconify" data-icon="ic:baseline-arrow-downward" data-inline="true"><path d="M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8l8-8z" fill="currentColor"></path></svg>
-            </a>
+	<div id="bottombutton">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="vertical-align: -0.125em;-ms-transform: rotate(360deg);-webkit-transform: rotate(360deg);transform: rotate(360deg);width: 100%;height: 100%;" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24" class="iconify" data-icon="ic:baseline-arrow-downward" data-inline="true"><path d="M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8l8-8z" fill="currentColor"></path></svg>
         </div>
 	</body>
+	<script type="text/javascript">
+		document.getElementById("topbutton").addEventListener('click', function(){
+			var body = document.getElementsByTagName("body")[0];
+			window.scroll({
+				behavior: 'smooth',
+				left: 0,
+				top:body.offsetTop
+			});
+		});
+		   
+		document.getElementById("bottombutton").addEventListener('click', function () {
+			var body = document.getElementsByTagName("body")[0];
+			window.scroll({
+				behavior: 'smooth',
+				left: 0,
+				top:body.offsetHeight
+			});
+		});
+	</script>
 	<script type="text/javascript" src="/views/Material/js/RecentChanges.js"></script>
 	<script type="text/javascript" src="/views/Material/js/main.js"></script>
 </html>
