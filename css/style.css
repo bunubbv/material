@@ -254,7 +254,11 @@ div#pre_search a {
 
 #bottom {
     border-bottom: none;
-    border-top: 1px solid rgba(0,0,0,.125)
+    border-top: 1px solid rgba(0,0,0,.125);
+}
+
+#navbarSupportedContent {
+    height: 42.01px;
 }
 
 #toc { 
