@@ -257,10 +257,6 @@ div#pre_search a {
     border-top: 1px solid rgba(0,0,0,.125)
 }
 
-#navbarSupportedContent {
-    height: 42.01px;
-}
-
 #toc { 
     border: 1px solid #ccc;
     padding: 12px 20px 18px 18px;
@@ -386,6 +382,10 @@ div#pre_search a {
 	
 	#loginmobile {
 		display: none;
+	}
+	
+	#navbarSupportedContent {
+	    height: unset!important;
 	}
 }
 
