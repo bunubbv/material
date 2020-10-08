@@ -25,20 +25,20 @@
 		<meta name="twitter:site" content="@{{imp[1][0]}}">
 		<meta name="twitter:card" content="summary">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="theme-color" content="gray">
+		<meta name="theme-color" content="gray"> <!-- 위키 대표 색 수정 시, fill="gray" 부분을 위키 대표 색으로 수정해주세요. -->
 	</head>
 	<body class="grey lighten-3">
 		<header>
-			<nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar" style="background-color: gray;"> <!-- 위키 대표 색 수정 시, fill="gray" 부분을 위키 대표 색으로 수정해주세요. -->
+			<nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar" style="background-color: gray">
 				<div class="container">
+					<a href="/">
+						<strong>{{imp[1][4]|safe}}</strong>
+					</a>
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
 					</button>
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="navbar-nav mr-auto">
-							<li class="nav-item">
-								<a class="nav-link waves-effect" href="/">{{imp[1][4]|safe}}</a>
-							</li>
 							<li class="nav-item">
 							  <a class="nav-link waves-effect" href="/recent_changes">최근 변경</a>
 							</li>
