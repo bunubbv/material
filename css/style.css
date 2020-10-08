@@ -126,7 +126,7 @@ input {
 
 textarea {
     width: 100%;
-	border: 1px solid #e1e8ed;
+    border: 1px solid #e1e8ed;
     padding: 5px;
     border-radius: 3px;
 }
@@ -148,33 +148,25 @@ s:hover, strike:hover, del:hover {
 }
 
 td { 
-	padding: 5px 10px;
-	border: 1px solid #dddddd; }
+    padding: 5px 10px;
+    border: 1px solid #dddddd;
+}
 	
 table { 
-	border-collapse: collapse;
-	background-color: #f5f5f5;
+    border-collapse: collapse;
+    background-color: #f5f5f5;
 }
 
 /* Custom CSS End */
 
 /* Custom ID Start */
 
-#nologinmobile {
-	padding: 0 .6rem;
-	margin-top: 9px;
-}
-
-#nologinusermenu {
-	padding: 0 .6rem;
-}
-
 #syntax {
     margin-bottom: -20px;
 }
 
 #cate {
-	border: 1px solid #e1e8ed;
+    border: 1px solid #e1e8ed;
     padding: 0.4rem;
     padding-left: 1rem;
     margin-bottom: 0;
@@ -187,11 +179,11 @@ form#searchform {
 }
 
 div#pre_search {
-	position: absolute;
-	z-index: 3;
-	border: 1px solid #ccc;
-	background-color: #fff;
-	width: 10.8rem
+    position: absolute;
+    z-index: 3;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    width: 10.8rem
 }
 
 div#pre_search a {
@@ -202,7 +194,7 @@ div#pre_search a {
     border: 1px solid #ced4da;
     padding: 5px 10px 5px 10px;
     background: white;
-	box-shadow: none;
+    box-shadow: none;
 }
 
 #searchbutton:active {
@@ -231,7 +223,7 @@ div#pre_search a {
 }
 
 #topbutton {
-	display: inline-block;
+    display: inline-block;
     padding: 10px;
     width: 60px;
     border-radius: 100%;
@@ -246,7 +238,7 @@ div#pre_search a {
 }
 
 #bottombutton {
-	display: inline-block;
+    display: inline-block;
     padding: 10px;
     width: 60px;
     position: fixed;
@@ -261,28 +253,26 @@ div#pre_search a {
 }
 
 #bottom {
-	border-bottom: none;
-	border-top: 1px solid rgba(0,0,0,.125)
+    border-bottom: none;
+    border-top: 1px solid rgba(0,0,0,.125)
 }
 
 #navbarSupportedContent {
-	height: 42.01px;
+    height: 42.01px;
 }
 
 #toc { 
-	border: 1px solid #ccc;
-	padding: 12px 20px 18px 18px;
-	font-size: .9rem;
-	display: inline-block;
+    border: 1px solid #ccc;
+    padding: 12px 20px 18px 18px;
+    font-size: .9rem;
+    display: inline-block;
 }
 
 #toc-name { 
-	font-size: 18px; 
+    font-size: 18px; 
 }
 
 /* Custom ID End */
-
-/* Media Tag Start */
 
 @media (min-width: 1200px) {
 	.container, .container-lg, .container-md, .container-sm, .container-xl {
@@ -353,12 +343,20 @@ div#pre_search a {
 		margin-bottom: 0;
 	}
 	
+	.mt-4 {
+		margin-top: 0!important;
+	}
+	
 	#nologinusermenu {
 		display: none;
 	}
 	
 	#loginusermenu {
 		display: none;
+	}
+	
+	#bottom {
+		padding: 0.5rem;
 	}
 }
 
@@ -389,6 +387,12 @@ div#pre_search a {
 	#loginmobile {
 		display: none;
 	}
+}
+
+@media (max-width:1023px) {
+	div#pre_search {
+		width: 100%;
+	}	
 }
 
 /* Media Tag End */
