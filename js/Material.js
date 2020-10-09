@@ -12,7 +12,7 @@ var isAllowRequestList = true;
 function ShowAjaxRecentList(parent) {
 	function temp() {
 		jQuery.ajax({
-			url: "/api/recent_changes", // 호출 URL
+			url: "/api/recent_changes?repeat=0", // 호출 URL
 			dataType:'json'
 		})
 
