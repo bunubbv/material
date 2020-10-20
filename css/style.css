@@ -157,6 +157,10 @@ table {
     background-color: #f5f5f5;
 }
 
+nav {
+    height: 51.59px;
+}
+
 /* Custom CSS End */
 
 /* Custom ID Start */
@@ -255,10 +259,6 @@ div#pre_search a {
 #bottom {
     border-bottom: none;
     border-top: 1px solid rgba(0,0,0,.125);
-}
-
-#navbarSupportedContent {
-    height: 42.01px;
 }
 
 #toc { 
