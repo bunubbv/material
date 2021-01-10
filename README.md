@@ -13,7 +13,7 @@ Material Skin for openNAMU. (Based on MDB Plugins)
      * 상단, 하단 이동 버튼은 SVG 코드 내 fill 부분을 수정하면 됩니다.
 
 ## License
-Copyright 2020 BlueWhite
+Copyright 2021 BlueWhite
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
