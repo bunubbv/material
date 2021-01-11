@@ -75,6 +75,10 @@ a.navbar-brand {
     margin-right: 20px;
 }
 
+.row {
+	max-width: unset!important;
+}
+
 /* Custom Class End */
 
 /* Custom CSS Start */
@@ -158,7 +162,7 @@ table {
 }
 
 nav {
-    height: 51.59px;
+    height: 51.6px;
 }
 
 /* Custom CSS End */
@@ -270,6 +274,11 @@ div#pre_search a {
 
 #toc-name { 
     font-size: 18px; 
+}
+
+#logo {
+	color: white;
+	margin-right: 5px;
 }
 
 /* Custom ID End */
@@ -393,10 +402,11 @@ div#pre_search a {
 	}
 }
 
-@media (max-width:1023px) {
-	div#pre_search {
-		width: 100%;
-	}	
+@media (max-width: 768px) {
+	nav {
+		height: unset!important;
+		min-height: 51.6px;
+	}
 }
 
 /* Media Tag End */
