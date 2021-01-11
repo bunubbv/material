@@ -9,7 +9,7 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 		<link href="/views/Material/css/Material.css?ver=4" rel="stylesheet">
-		<link href="/views/Material/css/style.css?ver=4" rel="stylesheet">
+		<link href="/views/Material/css/style.css?ver=5" rel="stylesheet">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/moonspam/NanumBarunGothic@latest/nanumbarungothicsubset.css">
 		{{imp[1][5]|safe}}
@@ -31,7 +31,7 @@
 		<header>
 			<nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar" style="background-color: gray"> <!-- 위키 대표 색 -->
 				<div class="container">
-					<a href="/" style="color: white; margin-right: 5px">
+					<a href="/" id="logo">
 						<strong>{{imp[1][4]|safe}}</strong>
 					</a>
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -77,10 +77,12 @@
 									    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="32px" height="32px"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
 									</a>
 									<div class="dropdown-menu dropdown-menu-right" aria-labelledby="usermenuDropdown">
-										<a class="dropdown-item" href="/record/{{imp[2][10]}}">내 문서 기여 목록</a>
-										<a class="dropdown-item" href="/topic_record/{{imp[2][10]}}">내 토론 기여 목록</a>
+										<a class="dropdown-item" href="/user">{{imp[2][10]}}</a>
 										<div class="dropdown-divider"></div>
-										<a class="dropdown-item" href="/register">회원가입</a>
+										<a class="dropdown-item" href="/record/{{imp[2][10]}}">편집 기록</a>
+										<a class="dropdown-item" href="/topic_record/{{imp[2][10]}}">토론 기록</a>
+										<div class="dropdown-divider"></div>
+										<a class="dropdown-item" href="/register">계정 만들기</a>
 										<a class="dropdown-item" href="/login">로그인</a>
 									</div>
 								</li>
@@ -94,13 +96,11 @@
 									<div class="dropdown-menu dropdown-menu-right" aria-labelledby="usermenuDropdown">
 										<a class="dropdown-item" href="/w/user:{{imp[2][5]}}">{{imp[2][5]}}</a>
 										<div class="dropdown-divider"></div>
-										<a class="dropdown-item" href="/record/{{imp[2][5]}}">내 문서 기여 목록</a>
-										<a class="dropdown-item" href="/topic_record/{{imp[2][5]}}">내 토론 기여 목록</a>
+										<a class="dropdown-item" href="/record/{{imp[2][5]}}">편집 기록</a>
+										<a class="dropdown-item" href="/topic_record/{{imp[2][5]}}">토론 기록</a>
 										<div class="dropdown-divider"></div>
-										<a class="dropdown-item" href="/user">사용자 도구</a>
-										<a class="dropdown-item" href="/change">내 정보</a>
-										<div class="dropdown-divider"></div>
-										<a class="dropdown-item" href="logout">로그아웃</a>
+										<a class="dropdown-item" href="/user">내 정보</a>
+										<a class="dropdown-item" href="/logout">로그아웃</a>
 									</div>
 								</li>
 								{% endif %}
@@ -130,12 +130,12 @@
 								    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="32px" height="32px"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
 								</a>
 								<div class="dropdown-menu dropdown-menu-right" aria-labelledby="usermenuDropdown">
-									<a class="dropdown-item" href="/record/{{imp[2][10]}}">내 문서 기여 목록</a>
-									<a class="dropdown-item" href="/topic_record/{{imp[2][10]}}">내 토론 기여 목록</a>
+									<a class="dropdown-item" href="/user">{{imp[2][10]}}</a>
 									<div class="dropdown-divider"></div>
-									<a class="dropdown-item" href="/user">사용자 도구</a>
+									<a class="dropdown-item" href="/record/{{imp[2][10]}}">편집 기록</a>
+									<a class="dropdown-item" href="/topic_record/{{imp[2][10]}}">토론 기록</a>
 									<div class="dropdown-divider"></div>
-									<a class="dropdown-item" href="/register">회원가입</a>
+									<a class="dropdown-item" href="/register">계정 만들기</a>
 									<a class="dropdown-item" href="/login">로그인</a>
 								</div>
 							</li>
@@ -149,12 +149,10 @@
 								<div class="dropdown-menu dropdown-menu-right" aria-labelledby="usermenuDropdown">
 									<a class="dropdown-item" href="/w/user:{{imp[2][5]}}">{{imp[2][5]}}</a>
 									<div class="dropdown-divider"></div>
-									<a class="dropdown-item" href="/record/{{imp[2][5]}}">내 문서 기여 목록</a>
-									<a class="dropdown-item" href="/topic_record/{{imp[2][5]}}">내 토론 기여 목록</a>
+									<a class="dropdown-item" href="/record/{{imp[2][5]}}">편집 기록</a>
+									<a class="dropdown-item" href="/topic_record/{{imp[2][5]}}">토론 기록</a>
 									<div class="dropdown-divider"></div>
-									<a class="dropdown-item" href="/user">사용자 도구</a>
-									<a class="dropdown-item" href="/change">내 정보</a>
-									<div class="dropdown-divider"></div>
+									<a class="dropdown-item" href="/user">내 정보</a>
 									<a class="dropdown-item" href="/logout">로그아웃</a>
 								</div>
 							</li>
@@ -169,18 +167,39 @@
 				<section class="mt-4">
 					<div class="row">
 						<div class="col-md-8 mb-4">
-							<div class="card mb-4 wow fadeIn" style="height: 100%">
-								<div class="card-header"><a style="color: unset;" href="/w/{{imp[0]}}">{{imp[0]}}</a>
-									{% if imp[3][0] != 0 %} {{imp[3][0]}}{% endif %}{% if menu != 0 %}<span style="float: right;">{% for sub_d in menu %}<a href="/{{sub_d[0]}}">{{sub_d[1]}}</a>{% if menu[loop.index] %} | {% endif %}{% endfor %}</span>{% endif %}
+							<div class="card mb-4 wow fadeIn">
+								<div class="card-header">
+									<a style="color: unset;" href="/w/{{imp[0]}}">{{imp[0]}}</a>
+									{% if imp[3][0] != 0 %}
+										{{imp[3][0]}}
+									{% endif %}
+									{% if menu != 0 %}
+										<span style="float: right;">
+										{% for sub_d in menu %}
+											<a href="/{{sub_d[0]}}">{{sub_d[1]}}</a>
+											{% if menu[loop.index] %}
+												|
+											{% endif %}
+										{% endfor %}
+										</span>
+									{% endif %}
 								</div>
 								<div class="card-body">
 									{{data|safe}}
 								</div>
 								<div class="card-header" id="bottom">
 									{{imp[1][1]|safe}}
-								<div style="margin-top: 10px"><a href="https://github.com/2DU/openNAMU"><img src="/views/main_css/file/s_logo.png" width="100px"></a> | <!--제작자 표시입니다. 지우지 말아주시길 부탁드립니다.--><a href="https://github.com/BadaWikiDev/Material-onamu">Material</a></div>
+									<div style="margin-top: 10px">
+										<!-- 라이선스를 별도로 표기하지 않는 한 해당 표시를 지우면 라이선스 위반입니다. 지우지 말아주시길 부탁드립니다. -->
+										<a href="https://github.com/2DU/openNAMU">
+											<img src="/views/main_css/file/s_logo.png" width="100px">
+										</a>
+										| 
+										<!-- 라이선스를 별도로 표기하지 않는 한 해당 표시를 지우면 라이선스 위반입니다. 지우지 말아주시길 부탁드립니다. -->
+										<a href="https://github.com/BadaWikiDev/Material-onamu">Material</a>
+									</div>
 								</div>
-								</div>
+							</div>
 						</div>
 						<div class="col-md-4 mb-4">
 							<div class="card mb-4 wow fadeIn">
@@ -211,7 +230,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="gray" width="100%" height="100%"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z"/></svg>
         </div>
 	<div id="bottombutton"> <!-- 위키 대표 색 -->
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="gray" width="100%" height=""><path d="M0 0h24v24H0z" fill="none"/><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="gray" width="100%" height="100%"><path d="M0 0h24v24H0z" fill="none"/><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/></svg>
         </div>
 	</body>
 	<script type="text/javascript">
