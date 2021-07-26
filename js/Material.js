@@ -6,7 +6,7 @@ function init() {
 }
 init();
 
-//윈도우 사이즈에 따라 변경을 할지 않할 지 체크한다.
+//윈도우 사이즈에 따라 변경을 할지 안할 지 체크한다.
 var isAllowRequestList = true;
 //매개 변수 parent는 ul태그여야 합니다
 function ShowAjaxRecentList(parent) {
