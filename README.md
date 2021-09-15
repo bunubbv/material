@@ -2,7 +2,7 @@
 ## Material
 Material Skin for openNAMU. (Based on MDB Plugins)
 
-바다위키에서 사용하던 Material 스킨을 openNAMU에 맞게 수정한 버전입니다. 일부가 추가, 제거되었습니다.
+Material 스킨을 openNAMU에 맞게 수정한 버전입니다. 일부가 추가, 제거되었습니다.
 
 ## 사용법
  * 다운받은 후, 이름을 Material로 바꿔서 views 폴더에 넣어주세요.
