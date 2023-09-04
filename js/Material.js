@@ -5,31 +5,33 @@ function materialButton() {
 	}
 }
 
-btn();
+materialButton();
 
-var recentChangesEnable = true;
+function getRecentChanges() {
+	jQuery.ajax({
+    	url: "/api/recent_changes?repeat=0", dataType:'json',
 
-function recentChanges(parent) {
-	function ajaxRequest() {
-		jQuery.ajax({url: "/api/recent_changes?repeat=0", dataType:'json'})
-
-		.done(function(res) {
+    	success:function(data) {
 			var result = "";
-			for(var i = 0 ; i < res.length && i < 10 ; i++) {
-				var item = res[i];
-        		result += '<a class="recent-item" href = "/w/' + encodeURIComponent(item[1]) + '" title="' + item[1] +'">';
-				var text = item[1];
-				if(text.length > 13) {
-					text = text.substr(0,13);
-					text +="...";
+
+        	for (let i = 0; i < data.length && i < 10; i++) {
+				var list = data[i];
+				var split = list[1];
+
+				result += '<a class="recent-item" href = "/w/' + encodeURIComponent(list[1]) + '" title="' + list[1] +'">';
+
+				if (split.length > 12) {
+					split = split.substr(0, 12);
+					split += "...";
 				}
-				result += text;
+
+				result += split;
 				result += "</a><br>"
 			}
-			if(parent != null) {
-				jQuery(parent).html(result);
-			}
-		});
-	}
-	ajaxRequest();
+
+            jQuery("#live-recent-list").html(result);
+        }
+    });
 }
+
+getRecentChanges();
